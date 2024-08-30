@@ -1,0 +1,119 @@
+
+/* Background */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('floor_bg_1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    max-height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+/* Top SVG logo */
+.svg-logo-top {
+    margin-bottom: 20px;
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.svg-logo-top img {
+    max-width: 60%;
+    height: auto;
+}
+
+/* Bottom SVG logo */
+.svg-logo-bottom {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.svg-logo-bottom img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navbar items */
+.navbar ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar ul li {
+    margin: 10px 0;
+}
+
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: background-color 0.3s, padding 0.3s, margin 0.3s;
+    box-sizing: border-box;
+}
+
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+@media (max-height: 700px) {
+    .navbar ul li a {
+        font-size: 16px;
+        padding: 8px 0;
+        margin: 5px 0;
+    }
+}
+
+
+/* Responsive width for smaller screens */
+@media (max-width: 600px) {
+    .navbar {
+        width: 80px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+}
+
+/* For even smaller screens */
+@media (max-height: 500px) {
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 6px 0;
+        margin: 3px 0;
+    }
+}
