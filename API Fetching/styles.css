@@ -1,0 +1,74 @@
+/* Add padding around the body to prevent elements from touching the screen's edges */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Center container and align the dropdown to the left */
+.main-container {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Position the dropdown on the left */
+#author {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Container for cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the cards horizontally */
+    gap: 20px; /* Adds space between cards */
+}
+
+/* Style for individual cards */
+.card {
+    width: 280px; /* Smaller, fixed width */
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect to cards */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.card a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
