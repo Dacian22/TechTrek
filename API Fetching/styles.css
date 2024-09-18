@@ -66,3 +66,28 @@ body {
     font-size: 14px;
     color: #555;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pagination-btn.active {
+    background-color: #2980b9;
+    font-weight: bold;
+}
+
+.pagination-btn:hover {
+    background-color: #1d6fa5;
+}
