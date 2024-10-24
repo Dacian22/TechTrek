@@ -1,0 +1,5 @@
+<div class="main-container">
+  <app-author-filter [authors]="authors" (authorSelected)="onAuthorSelected($event)"></app-author-filter>
+  <app-card-list [photos]="filteredPhotos" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage"></app-card-list>
+  <app-pagination [totalItems]="filteredPhotos.length" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage" (pageChanged)="onPageChanged($event)"></app-pagination>
+</div>

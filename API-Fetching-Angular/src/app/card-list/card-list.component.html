@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="card" *ngFor="let photo of paginatedPhotos">
+    <img [src]="photo.download_url" [alt]="photo.author">
+    <h3>{{photo.author}}</h3>
+    <p>Width: {{photo.width}}, Height: {{photo.height}}</p>
+    <a [href]="photo.url" target="_blank">View on Unsplash</a>
+  </div>
+</div>

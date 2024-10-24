@@ -1,0 +1,5 @@
+<label for="author">Author</label>
+<select id="author" (change)="onAuthorChange($event)">
+  <option value="">All Authors</option>
+  <option *ngFor="let author of authors" [value]="author">{{author}}</option>
+</select>
