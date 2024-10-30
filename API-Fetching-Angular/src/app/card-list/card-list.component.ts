@@ -1,4 +1,5 @@
 import {Component, Input, OnChanges} from '@angular/core';
+import { Photo } from '../model/Photo';
 
 @Component({
   selector: 'app-card-list',
@@ -7,10 +8,10 @@ import {Component, Input, OnChanges} from '@angular/core';
   styleUrl: './card-list.component.css'
 })
 export class CardListComponent implements OnChanges {
-  @Input() photos: any[] = [];
+  @Input() photos: Photo[] = [];
   @Input() itemsPerPage: number = 10;
   @Input() currentPage: number = 1;
-  paginatedPhotos: any[] = [];
+  paginatedPhotos: Photo[] = [];
 
   ngOnChanges() {
     this.updatePaginatedPhotos();

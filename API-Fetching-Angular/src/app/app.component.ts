@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PhotoService} from './photo-service/photo.service';
+import { Photo } from './model/Photo';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import {PhotoService} from './photo-service/photo.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  photos: any[] = [];
-  filteredPhotos: any[] = [];
+  photos: Photo[] = [];
+  filteredPhotos: Photo[] = [];
   authors: string[] = [];
   itemsPerPage = 10;
   currentPage = 1;

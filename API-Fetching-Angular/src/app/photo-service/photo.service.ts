@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import { Photo } from '../model/Photo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
   private API_URL = 'https://picsum.photos/v2/list';
-  private photosSubject = new BehaviorSubject<any[]>([]);
+  private photosSubject = new BehaviorSubject<Photo[]>([]);
   private authorsSubject = new BehaviorSubject<string[]>([]);
 
   constructor(private http: HttpClient) {
@@ -16,7 +17,7 @@ export class PhotoService {
 
   // Fetch data from the API
   private fetchPhotos() {
-    this.http.get<any[]>(this.API_URL).subscribe(data => {
+    this.http.get<Photo[]>(this.API_URL).subscribe(data => {
       this.photosSubject.next(data);
       const uniqueAuthors = [...new Set(data.map(photo => photo.author))];
       this.authorsSubject.next(uniqueAuthors);
@@ -26,7 +27,7 @@ export class PhotoService {
   }
 
   // Get photos as an observable
-  getPhotos(): Observable<any[]> {
+  getPhotos(): Observable<Photo[]> {
     return this.photosSubject.asObservable();
   }
 
