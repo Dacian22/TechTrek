@@ -1,0 +1,22 @@
+.tab-container {
+  display: flex;
+  justify-content: center;
+  //height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add some padding around the container */
+  box-sizing: border-box;
+}
+
+.centered-tab-view {
+  width: 60%; /* Adjust this percentage to make the panels bigger or smaller */
+  min-width: 600px; /* Ensure it doesn’t get too small */
+  max-width: 1000px; /* Optional: limit the maximum size */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for a nice effect */
+  border-radius: 8px; /* Slightly rounded corners */
+  background: #fff; /* White background for a clean look */
+  padding: 20px; /* Padding inside the tabs */
+}
+
+::ng-deep .p-tabview-nav {
+  justify-content: center;
+
+}

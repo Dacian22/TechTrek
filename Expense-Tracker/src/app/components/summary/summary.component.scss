@@ -1,0 +1,39 @@
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.expense-table th,
+.expense-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.expense-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.expense-table td {
+  vertical-align: top;
+}
+
+.no-expenses {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 8px;
+}
+
+.weekly-total {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+
+
+

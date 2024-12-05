@@ -1,0 +1,11 @@
+<div class="expense-item-card">
+  <div class="expense-item-content">
+    <span class="expense-category">{{ expense.category.name }}</span>
+    <span class="expense-name">{{ expense.name }}</span>
+    <span class="expense-amount">{{ expense.amount | currency:'EUR' }}</span>
+  </div>
+  <div class="expense-item-actions">
+    <button pButton icon="pi pi-pencil" (click)="onEdit()"></button>
+    <button pButton icon="pi pi-trash" (click)="onDelete()"></button>
+  </div>
+</div>

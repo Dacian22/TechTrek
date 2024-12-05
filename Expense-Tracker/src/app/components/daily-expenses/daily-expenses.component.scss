@@ -1,0 +1,93 @@
+/* Container for the entire form */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Container for the form items to display them in a single line */
+.form-item-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Style for input fields */
+input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 200px;
+}
+
+
+/* Styling for input number */
+p-inputNumber {
+  width: 120px;
+}
+
+/* Styling for buttons */
+button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #007ad9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Styling for button hover */
+button:hover {
+  background-color: #005bb5;
+}
+
+/* Container for individual expense items */
+.expense-item-container {
+  margin-top: 10px;
+}
+
+/* Styling for each expense card */
+.expense-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+/* Styling for expense details */
+.expense-item-content {
+  display: flex;
+  gap: 10px;
+}
+
+
+
+/* Container for the form items to display them in a single line */
+.form-item-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust this gap to control the space between items */
+  margin-bottom: 15px;
+  flex-wrap: nowrap; /* Ensures items don't wrap to the next line */
+}
+
+/* Adjust button styling */
+button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #007ad9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+p-inputNumber {
+  flex: 1; /* Makes the input fields take up available space */
+  min-width: 120px; /* Sets a minimum width for better appearance */
+}

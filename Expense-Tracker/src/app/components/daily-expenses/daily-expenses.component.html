@@ -1,0 +1,42 @@
+<p-card>
+  <form [formGroup]="expensesForm" class="form-container">
+    <div class="form-item-container">
+
+      <p-dropdown
+        formControlName="newCategory"
+        [options]="categories"
+        placeholder="Category"
+        optionLabel="name"
+      ></p-dropdown>
+
+        <input
+          type="text"
+          id="expenseName"
+          formControlName="newName"
+          placeholder="Expense Name"
+        />
+
+
+      <p-inputNumber
+        formControlName="newAmount"
+        placeholder="Amount"
+        [mode]="'decimal'"
+        [min]="0"
+      ></p-inputNumber>
+
+      <button pButton type="button" label="Add Expense" (click)="addExpense()" [disabled]="!expensesForm.valid"></button>
+    </div>
+    <div formArrayName="expenses">
+      <div *ngFor="let expense of expenses.controls; let i = index" [formGroupName]="i">
+          <app-expense-item-card
+            [expense]="expense.value"
+            [index]="i"
+            (edit)="editExpense($event)"
+            (delete)="deleteExpense($event)"
+          ></app-expense-item-card>
+      </div>
+    </div>
+  </form>
+  <h3>Daily Total: {{ dailyTotal | currency:'EUR' }}</h3>
+</p-card>
+<p-toast></p-toast>

@@ -1,0 +1,13 @@
+<div class="tab-container">
+  <p-tabView class="centered-tab-view">
+    <!-- Daily Expenses Tabs -->
+    <p-tabPanel *ngFor="let day of days" [header]="day">
+      <app-daily-expenses [day]="day"></app-daily-expenses>
+    </p-tabPanel>
+
+    <!-- Summary Tab -->
+    <p-tabPanel header="Summary">
+      <app-summary></app-summary>
+    </p-tabPanel>
+  </p-tabView>
+</div>
