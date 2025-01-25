@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ExpenseService} from '../../services/expense.service';
-// import * as XLSX from 'xlsx';
+import {DayMapping} from '../../models/DayMapping.enum';
 
 @Component({
   selector: 'app-summary',
@@ -9,28 +9,27 @@ import {ExpenseService} from '../../services/expense.service';
 export class SummaryComponent implements OnInit {
   weeklyExpenses: { [key: string]: any[] } = {};
   weeklyTotal: number = 0;
-  days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  dayMapping: { name: string, fullName: string }[] = [
-    { name: 'Mon', fullName: 'Monday' },
-    { name: 'Tue', fullName: 'Tuesday' },
-    { name: 'Wed', fullName: 'Wednesday' },
-    { name: 'Thu', fullName: 'Thursday' },
-    { name: 'Fri', fullName: 'Friday' },
-    { name: 'Sat', fullName: 'Saturday' },
-    { name: 'Sun', fullName: 'Sunday' }
-  ];
+
+  dayMapping = DayMapping;
+
+  get dayMappingKeys(): { key: string; value: string }[] {
+    return Object.entries(this.dayMapping).map(([key, value]) => ({key, value}));
+  }
 
   pieChartData: any;
 
-  constructor(private expenseService: ExpenseService) {}
+  constructor(private expenseService: ExpenseService) {
+  }
 
   ngOnInit(): void {
     this.expenseService.expenses$.subscribe(data => {
       this.weeklyExpenses = data;
+      console.log(this.weeklyExpenses)
+      console.log(this.weeklyExpenses[this.dayMappingKeys[0].value])
       this.calculateWeeklyTotal();
       this.calculatePieChartData();
     });
-    console.log(this.weeklyExpenses);
+
   }
 
   calculatePieChartData() {
@@ -52,7 +51,7 @@ export class SummaryComponent implements OnInit {
         }
       ]
     };
-    console.log("pie chart",this.pieChartData);
+
   }
 
   calculateWeeklyTotal(): void {

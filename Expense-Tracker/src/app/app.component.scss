@@ -20,3 +20,29 @@
   justify-content: center;
 
 }
+
+
+/* Styling for buttons */
+button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #007ad9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Styling for button hover */
+button:hover {
+  background-color: #005bb5;
+}
+
+
+.tab-navigation {
+  display: flex;
+  justify-content: space-between; /* Place buttons at both ends */
+  margin-top: 10px;
+  transform: translateY(-50%); /* Center buttons vertically */
+  padding: 0 20px;
+}

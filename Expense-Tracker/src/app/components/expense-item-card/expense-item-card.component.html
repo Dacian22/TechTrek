@@ -5,7 +5,7 @@
     <span class="expense-amount">{{ expense.amount | currency:'EUR' }}</span>
   </div>
   <div class="expense-item-actions">
-    <button pButton icon="pi pi-pencil" (click)="onEdit()"></button>
-    <button pButton icon="pi pi-trash" (click)="onDelete()"></button>
+    <button (click)="onEdit()" icon="pi pi-pencil" pButton></button>
+    <button (click)="onDelete()" icon="pi pi-trash" pButton></button>
   </div>
 </div>

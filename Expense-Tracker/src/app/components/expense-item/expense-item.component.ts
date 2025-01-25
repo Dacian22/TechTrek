@@ -10,9 +10,5 @@ import {Expense} from '../../models/Expense';
 export class ExpenseItemComponent {
   @Input() expense!: Expense;
 
-  ngOnInit() {
-    console.log('ExpenseItemComponent initialized');
-    console.log(this.expense);
-  }
 
 }

@@ -3,37 +3,39 @@
     <div class="form-item-container">
 
       <p-dropdown
-        formControlName="newCategory"
         [options]="categories"
-        placeholder="Category"
+        formControlName="newCategory"
         optionLabel="name"
+        placeholder="Category"
       ></p-dropdown>
 
-        <input
-          type="text"
-          id="expenseName"
-          formControlName="newName"
-          placeholder="Expense Name"
-        />
+      <input
+        formControlName="newName"
+        id="expenseName"
+        placeholder="Expense Name"
+        type="text"
+      />
 
 
       <p-inputNumber
+        [min]="0"
+        [mode]="'decimal'"
         formControlName="newAmount"
         placeholder="Amount"
-        [mode]="'decimal'"
-        [min]="0"
       ></p-inputNumber>
 
-      <button pButton type="button" label="Add Expense" (click)="addExpense()" [disabled]="!expensesForm.valid"></button>
+      <button (click)="addExpense()" [disabled]="!expensesForm.valid"  [label]="!editing ? 'Add Expense' : 'Edit Expense'"
+              pButton
+              type="button"></button>
     </div>
     <div formArrayName="expenses">
       <div *ngFor="let expense of expenses.controls; let i = index" [formGroupName]="i">
-          <app-expense-item-card
-            [expense]="expense.value"
-            [index]="i"
-            (edit)="editExpense($event)"
-            (delete)="deleteExpense($event)"
-          ></app-expense-item-card>
+        <app-expense-item-card
+          (delete)="deleteExpense($event)"
+          (edit)="editExpense($event)"
+          [expense]="expense.value"
+          [index]="i"
+        ></app-expense-item-card>
       </div>
     </div>
   </form>

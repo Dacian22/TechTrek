@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 import ExcelJS from 'exceljs';
 import * as fs from 'file-saver';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +10,8 @@ export class ExpenseService {
   private expensesSubject = new BehaviorSubject<{ [key: string]: any[] }>({});
   expenses$ = this.expensesSubject.asObservable();
 
-  constructor() {}
+  constructor() {
+  }
 
   // Add or edit an expense for a specific day
   addOrEditExpense(day: string, expense: any): void {
@@ -28,8 +30,8 @@ export class ExpenseService {
       currentExpenses[day].push(expense);
     }
     // Emit the updated expenses
-    this.expensesSubject.next({ ...currentExpenses });
-    console.log(this.expensesSubject.value);
+    this.expensesSubject.next({...currentExpenses});
+
   }
 
   // Get all expenses for a specific day
@@ -56,10 +58,10 @@ export class ExpenseService {
 
     // Define columns
     worksheet.columns = [
-      { header: 'Day', key: 'day', width: 15 },
-      { header: 'Name', key: 'name', width: 20 },
-      { header: 'Category', key: 'category', width: 20 },
-      { header: 'Amount', key: 'amount', width: 15 }
+      {header: 'Day', key: 'day', width: 15},
+      {header: 'Name', key: 'name', width: 20},
+      {header: 'Category', key: 'category', width: 20},
+      {header: 'Amount', key: 'amount', width: 15}
     ];
 
     // Add rows to the worksheet
@@ -67,7 +69,7 @@ export class ExpenseService {
 
     // Generate the Excel file and save it
     workbook.xlsx.writeBuffer().then(buffer => {
-      const blob = new Blob([buffer], { type: 'application/octet-stream' });
+      const blob = new Blob([buffer], {type: 'application/octet-stream'});
       fs.saveAs(blob, 'Weekly_Expenses.xlsx');
     });
   }

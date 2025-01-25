@@ -1,9 +1,9 @@
 <p-card>
   <h2>Your weekly expense summary</h2>
-  <div *ngFor="let day of dayMapping">
+  <div *ngFor="let day of dayMappingKeys">
     <!-- Check if there are expenses for the current day -->
-    <div *ngIf="(weeklyExpenses[day.name] ?? []).length > 0" class="day-summary">
-      <h3>{{ day.fullName }}</h3>
+    <div *ngIf="(weeklyExpenses[day.value] ?? []).length > 0" class="day-summary">
+      <h3>{{ day.value }}</h3>
       <table class="expense-table">
         <thead>
         <tr>
@@ -13,21 +13,21 @@
         </tr>
         </thead>
         <tbody>
-        <tr app-expense-item [expense]="expense" *ngFor="let expense of weeklyExpenses[day.name]">
+        <tr *ngFor="let expense of weeklyExpenses[day.value]" [expense]="expense" app-expense-item>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
   <h3 class="weekly-total">Weekly Total: {{ weeklyTotal | currency:'EUR' }}</h3>
-  <button pButton label="Export to Excel" (click)="exportToExcel()"></button>
+  <button (click)="exportToExcel()" label="Export to Excel" pButton></button>
 
   <h4>Expenses by Category</h4>
   <div class="chart-container">
     <p-chart
-      type="pie"
-      [width]="'10'" [height]="'10'"
       [data]="pieChartData"
+      [height]="'10'" [width]="'10'"
+      type="pie"
     ></p-chart>
   </div>
 </p-card>

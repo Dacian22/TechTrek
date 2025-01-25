@@ -68,7 +68,6 @@ button:hover {
 }
 
 
-
 /* Container for the form items to display them in a single line */
 .form-item-container {
   display: flex;
@@ -80,6 +79,7 @@ button:hover {
 
 /* Adjust button styling */
 button {
+  margin-right: 4px;
   padding: 8px 12px;
   border-radius: 4px;
   background-color: #007ad9;
@@ -88,6 +88,7 @@ button {
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
 p-inputNumber {
   flex: 1; /* Makes the input fields take up available space */
   min-width: 120px; /* Sets a minimum width for better appearance */

@@ -1,8 +1,15 @@
 <div class="tab-container">
-  <p-tabView class="centered-tab-view">
+  <p-tabView [(activeIndex)]="activeIndex" class="centered-tab-view">
+
+    <!-- Next and Previous Buttons -->
+    <div class="tab-navigation">
+      <button (click)="prevTab()" [disabled]="activeIndex === 0" class="prev-btn" pButton>Previous</button>
+      <button (click)="nextTab()" [disabled]="activeIndex === totalTabs - 1" class="next-btn" pButton>Next</button>
+    </div>
+
     <!-- Daily Expenses Tabs -->
-    <p-tabPanel *ngFor="let day of days" [header]="day">
-      <app-daily-expenses [day]="day"></app-daily-expenses>
+    <p-tabPanel *ngFor="let day of dayMapping" [header]="day[1]">
+      <app-daily-expenses [day]="day[1]"></app-daily-expenses>
     </p-tabPanel>
 
     <!-- Summary Tab -->
@@ -10,4 +17,6 @@
       <app-summary></app-summary>
     </p-tabPanel>
   </p-tabView>
+
+
 </div>
